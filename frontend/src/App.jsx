@@ -8,6 +8,7 @@ function App() {
 
   return (
     <>
+    <h1>ghc</h1>
       <Routes>
         <Route path='/login' element={<LoginPage/>}/>
       </Routes>
