@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+
 import './App.css'
 import { Routes,Route } from 'react-router-dom'
 import { LoginPage } from './routes/Routes'
@@ -8,7 +9,6 @@ function App() {
 
   return (
     <>
-    <h1>ghc</h1>
       <Routes>
         <Route path='/login' element={<LoginPage/>}/>
       </Routes>
