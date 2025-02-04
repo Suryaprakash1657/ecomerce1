@@ -22,3 +22,4 @@
 ## Milestone 4 
 - created an file inside model folder
 - Used mongoose , bcrypt and jsonwebtoken
+- multer created
