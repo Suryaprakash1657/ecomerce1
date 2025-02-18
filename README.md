@@ -23,3 +23,7 @@
 - created an file inside model folder
 - Used mongoose , bcrypt and jsonwebtoken
 - multer created
+
+## Milestone 5
+- Created a signup page
+- Added form validation to ensure users input valid data.
