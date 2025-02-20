@@ -1,5 +1,6 @@
 import React from "react";
-import Product from "../component/Product";
+import Product from "../components/Product"
+
 const productDetails = [
     {
       name: "Product 1",
@@ -62,15 +63,30 @@ const productDetails = [
       price: 1000,
     },
   ];
-function Home() {
+
+
+
+
+
+
+
+
+
+
+
+
+function Home(){
     return (
         <div>
             <div>
-                {productDetails.map((item,index) => {
-                    <Product key={index} {...item} />
+                {productDetails.map((item,index)=>{
+                    return <Produc
+                    t key={index} {...item}/>
                 })}
             </div>
+
         </div>
-        
-    )};
-    export default Home;
+    )
+}
+
+export default Home

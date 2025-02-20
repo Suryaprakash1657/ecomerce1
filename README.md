@@ -16,3 +16,16 @@ Used mongoose , bcrypt , jsonwebtoken and multer
 ## Milestone 5
 - Created a signup page
 - Added form validation to ensure users input valid data.
+
+## Milestone 6  
+- Use bcrypt to hash the user's password during signup. 
+- Save the hashed password in the database instead of plain text.
+- Saved all the user's data in the database while ensuring that the password remains encrypted.
+
+## Milestone 7 
+- Accept user credentials (email/username and password).  
+- Retrieve the corresponding user from the database.
+
+## validate Password 
+- Use bcrypt to hash the entered password.
+- Compare it with the stored hashed password for authentication.
