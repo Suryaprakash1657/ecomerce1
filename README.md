@@ -29,3 +29,19 @@ Used mongoose , bcrypt , jsonwebtoken and multer
 ## validate Password 
 - Use bcrypt to hash the entered password.
 - Compare it with the stored hashed password for authentication.
+
+## Milestone 8 
+- Designed a reusable card component with props for product details (e.g., name, image, price).
+- Set up a grid layout or flexbox for displaying multiple cards neatly.
+
+## Milestone 9 
+- Created the form for products
+- This form will take multiple product images images as input
+
+## Milestone 10
+- Defined the structure of product data (e.g., name, description, price, image URL) using Mongoose. -Ensure each field has proper validation (e.g., required fields, correct data types).
+- Built a POST endpoint to receive product data.
+- Validate and save the product details to MongoDB.
+
+## validate password 
+- Ensures that only valid data is saved in the database, maintaining data integrity and preventing errors.
