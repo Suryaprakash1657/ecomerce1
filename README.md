@@ -61,4 +61,8 @@ Used mongoose , bcrypt , jsonwebtoken and multer
 - Created put endpoint
 
 ## Milestone 14
-- Created delete endpoint
+- Created delete endpoint   
+
+## Milestone 15 
+- Created an new Nav component with links to all pages
+- Created a Navbar and made it responsive to all screen  
