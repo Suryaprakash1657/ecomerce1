@@ -66,3 +66,6 @@ Used mongoose , bcrypt , jsonwebtoken and multer
 ## Milestone 15 
 - Created an new Nav component with links to all pages
 - Created a Navbar and made it responsive to all screen  
+
+## Milestone 15 
+- Created a new page that displays all product data
