@@ -69,3 +69,11 @@ Used mongoose , bcrypt , jsonwebtoken and multer
 
 ## Milestone 15 
 - Created a new page that displays all product data
+
+## Milestone 16
+- Created a new page that store all product data
+
+
+## Milestone !7
+- Wrote the cart schema to store products
+- Wrote an endpoint to store receive and store product details in cart
