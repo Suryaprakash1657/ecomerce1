@@ -4,7 +4,7 @@ const Product = require('../model/product')
 const {pupload} = require('../multer')
 const router = express.Router()
 const path = require('path');
-
+const User = require('../model/user')
 const validateProductData=(data)=>{
     const errors = [];
 
@@ -20,26 +20,23 @@ const validateProductData=(data)=>{
 
 
 router.post('/createProduct',pupload.array('images',10),async(req,res)=>{
-   
-    const  {name ,description,price,stock,email,category}=req.body
-    const images = req.files.map((file) => `${path.basename(file.path)}`);// for storing image path in mongodb cause we cant store image mongodb..mongodb support json data not image
+    const {name,description,category,tags,price,stock, email} = req.body
+    const images = req.files.map((file) => `${path.basename(file.path)}`);
 
-    // const validationErrors = validateProductData({ name, description, category, price, stock, email });
-    // if (validationErrors.length > 0) {
-    //     return res.status(400).json({ errors: validationErrors });
-    // }
+    const validationErrors = validateProductData({ name, description, category, price, stock, email });
+    if (validationErrors.length > 0) {
+        return res.status(400).json({ errors: validationErrors });
+    }
 
-    // if (images.length === 0) {
-    //     return res.status(400).json({ error: 'At least one image is required' });
-    // }
+    if (images.length === 0) {
+        return res.status(400).json({ error: 'At least one image is required' });
+    }
 
     try {
         //  const user = await User.findOne({ email });
         //  if (!user) {
         //      return res.status(400).json({ error: 'Email does not exist in the users database' });
         //  }
-        if(!name ||!description ||!category||!price||!stock||!email)
-            return res.status(400).json("all required")
 
         const newProduct = new Product({
             name,
@@ -90,6 +87,8 @@ router.get('/get-products', async (req, res) => {
             res.status(500).json({ error: 'Server error. Could not fetch products.' });
         }
     })
+
+
     router.get('/my-products', async (req, res) => {
         const {email} = req.query
         try {
@@ -113,6 +112,7 @@ if(!products)
                 res.status(500).json({ error: 'Server error. Could not fetch products.' });
             }
         })
+        
         router.get('/product/:id', async (req, res) => {
     const { id } = req.params;
 
@@ -137,7 +137,7 @@ if(!products)
      const images = req.files.map((file) => `${path.basename(file.path)}`)
        
 
-     const updateProduct =  new Product({name ,description,price,stock,email,category,images})
+     const updateProduct = {name ,description,price,stock,email,category,images}
      await Product.findByIdAndUpdate(id,updateProduct,{new:true})
      res.status(200).json({products:updateProduct})
     }
@@ -156,6 +156,7 @@ if(!products)
         res.status(500).send(e.message)
     }
  })
+
  router.post('/addTocart', async (req, res) => {
     const { userId, productId, quantity } = req.body;
 
@@ -194,23 +195,53 @@ if(!products)
     }
 });
 
-router.get('/cartProduct',async(req,res)=>{
+router.get('/cartProduct', async(req,res)=>{
     const {email}=req.query
-
-try{if(!email)
-    res.status(404).send('login to add to cart')
-    const user=await User.findOne({email}).populate({path:'cart.productId',model:'Product'})
-    if(!user)
-        res.status.apply(400).send('register to add to cart')
-    res.status(200).json({
-        message:'Cart retrived successfully',
-        cart:user.cart
-    });
-} catch(err){
-    console.error('Server error:',err);
-    res.status(500).json({error: 'server error'});
-}
-
-
+    try{if(!email)
+        res.status(404).send(`login to add to cart`)
+    const user= await User.findOne({email}).populate({  path: 'cart.productId',
+        model: 'Product'})
+        if(!user)
+            res.status(400).send(`register to add to cart`)
+        res.status(200).json({
+            message: 'Cart retrieved successfully',
+            cart: user.cart
+        });
+    } catch (err) {
+        console.error('Server error:', err);
+        res.status(500).json({ error: 'Server Error' });
+    }
 
 })
+
+router.put('/cartproduct/quantity', async (req, res) => {
+    const { email, productId, quantity } = req.body;
+    console.log("Updating cart product quantity");
+
+    if (!email || !productId || quantity === undefined) {
+        return res.status(400).json({ error: 'Email, productId, and quantity are required' });
+    }
+
+    try {
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+
+        const cartProduct = user.cart.find(item => item.productId.toString() === productId);
+        if (!cartProduct) {
+            return res.status(404).json({ error: 'Product not found in cart' });
+        }
+
+        cartProduct.quantity = quantity;
+        await user.save();
+
+        res.status(200).json({
+            message: 'Cart product quantity updated successfully',
+            cart: user.cart
+        });
+    } catch (err) {
+        console.error('Server error:', err);
+        res.status(500).json({ error: 'Server Error' });
+    }
+});
