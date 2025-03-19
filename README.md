@@ -86,3 +86,16 @@ Used mongoose , bcrypt , jsonwebtoken and multer
 - Created a cart page that displays the products inside cart using endpoint we build in milestone 18.
 - For each product added an option to increase and decrease quantity using + and - buttons.
 - Wrote an endpoint to increase and decrease the quantity
+
+## Milestone 19
+- Created an cart page that display the products inside cart using endpoint that was build in milestone 18.
+
+## Milestone 20
+- Created an backend endpoint that sends all the user data using mail.
+- Created an frontend profile page that displays all the user data.
+
+## Milestone 21
+- Created an frontend form that takes address.
+
+## Milestone 22
+- Created an backend endpoint that stores the address inside user profile in the database.
