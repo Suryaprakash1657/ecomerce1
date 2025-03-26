@@ -96,3 +96,7 @@ const updateQuantityVal = (quantity) => {
 		</div>
 	);
 }
+
+
+
+
