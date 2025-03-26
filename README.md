@@ -99,3 +99,8 @@ Used mongoose , bcrypt , jsonwebtoken and multer
 
 ## Milestone 22
 - Created an backend endpoint that stores the address inside user profile in the database.
+
+## Milestone 23
+- Created an placeorder button inside cart page and navigated to select address page when clicked.
+- Created an select address page that will display all the available address and have an option to select one address.
+- Wrote an backend endpoint that will send all the addresses of the user.
