@@ -104,3 +104,6 @@ Used mongoose , bcrypt , jsonwebtoken and multer
 - Created an placeorder button inside cart page and navigated to select address page when clicked.
 - Created an select address page that will display all the available address and have an option to select one address.
 - Wrote an backend endpoint that will send all the addresses of the user.
+
+## Milestone 24
+- created an order conformation page in frontend which will display products ordering and address selected and total price details.
