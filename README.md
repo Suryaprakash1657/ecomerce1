@@ -108,6 +108,6 @@ Used mongoose , bcrypt , jsonwebtoken and multer
 ## Milestone 24
 - created an order conformation page in frontend which will display products ordering and address selected and total price details.     
 
-## Milestone 25 
+## Milestone 26 
 - created an endpoint that recieves the user mail 
 - created an backend endpoint that helps in getting the order of user 
