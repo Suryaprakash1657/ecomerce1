@@ -114,4 +114,15 @@ Used mongoose , bcrypt , jsonwebtoken and multer
 
 ## Milestone 26 
 - created an endpoint that recieves the user mail 
-- created an backend endpoint that helps in getting the order of user 
+- created an backend endpoint that helps in getting the order of user      
+
+## Milestone 27 
+- Created my-orders page 
+-  Displayed all the user orders
+
+## Milestone 28
+- created an endpoint that will receive the order-id
+- Got the order using the id and marked the status and cancled save  
+
+## Milestone 29
+- Created radio buttons to select COD or online payment and when we click on online payment PayPal buttons need to be displayed.
