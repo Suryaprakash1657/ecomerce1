@@ -125,4 +125,11 @@ Used mongoose , bcrypt , jsonwebtoken and multer
 - Got the order using the id and marked the status and cancled save  
 
 ## Milestone 29
-- Created radio buttons to select COD or online payment and when we click on online payment PayPal buttons need to be displayed.
+- Created radio buttons to select COD or online payment and when we click on online payment PayPal buttons need to be displayed.   
+
+## Milestone 30
+- Implemented online payment using PayPal API using the client key.
+
+## Milestone 31
+- Created new folder store that stores two files store.js and userAction.js
+- In store.js file configured an store with userReducer function that handles global user email state inside global state.
