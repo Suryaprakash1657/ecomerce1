@@ -126,3 +126,15 @@ Used mongoose , bcrypt , jsonwebtoken and multer
 
 ## Milestone 29
 - Created radio buttons to select COD or online payment and when we click on online payment PayPal buttons need to be displayed.
+
+## Milestone 30
+- Learnt how to use PayPal API.
+- Integrated online payments.
+
+## Milestone 31
+- created an new folder called store with two files store.js and userActions.js.
+-  store user mail inside global state.
+- In store.js file configured an store with userReducer function that will handle global user email state.
+- Inside userActions.js file write an function called setEmail that will help in storing email state inside global state.
+- Inide Index.js file wraped APP component inside provider component with store as props.
+
